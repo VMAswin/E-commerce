@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+           #u1{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            left: 0;
+            top: 140px;
+        }
+        #a2,#a3,#a4,#a5,#a6{
+            text-decoration: none;
+            padding: 10px;
+            color: red;
+            display: block;
+        }
+        li{
+            float: left;
+        }
+        li:hover{
+            
+            color: white;
+        }
+        .container{
+            border: 1px solid red;
+            padding: 20px;
+            background-color: bisque;
+        }
+        input{
+            text-align: center;
+            border-style: groove;
+            border-radius: 50px;
+            width: 250px;
+        }
+        select{
+            width: 150px;
+            text-align: center;
+            border-style: groove;
+        }
+        body{
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-info navbar-dark">
+        <a class="navbar-brand" href="#">E-Shopping</a>
+        <a href="cart.html">
+        <img src="{% static 'images/sc.png' %}" width="30px" height="30px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" id="l1">
+                <a href="" class="nav-link" id="a1">Logout</a>
+              </li>      
+          </ul>
+        </div>  
+      </nav>
+      <center>
+        <h2>Add Products</h2>
+        <div class="container">
+            <form action="{% url 'adpro' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" placeholder="Product Name:" name="prn"><br><br>
+                <input type="text" placeholder="Description:" name="prd"><br><br>
+                <input type="number" placeholder="Price:" name="pri"><br><br>
+                <input type="file" accept="image/*" name="ima"><br><br>
+                <select name="se">
+                    {% for c in co %}
+                      <option value="{{c.id}}">{{c.category_Name}}</option>
+                      {% endfor %}
+                  </select><br><br>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+      </center>
+</body>
+</html>

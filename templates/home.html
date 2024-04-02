@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+         .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+        #a1{
+            height: 370px;
+        }
+        #b{
+            height: 370px;
+        }
+        #c{
+            height: 365px;
+        }
+        #d{
+            height: 365px;
+        }
+       #e{
+        margin-top: 20px;
+       }
+       #f{
+        position: relative;
+        top: 20px;
+       }
+       #i{
+        width: 1146px;
+       }
+       #g{
+        position: relative;
+        right: 16px;
+        height: 100%;
+        width: 365px;
+       }
+       #h{
+        position: relative;
+        right: 18px;
+        height: 360px;
+        width: 365px;
+        
+       }
+       #j{
+        position: relative;
+        right: 18px;
+        height: 50%;
+        width: 365px;
+       }
+       #im1{
+        position: absolute;
+        left: 1px;
+       }
+       #im2{
+        position: absolute;
+        left: 245px;
+       }
+       #im3{
+        position: absolute;
+        left: 480px;
+       }
+       #im4{
+        position: absolute;
+        left: 720px;
+       }
+       #im5{
+        position: absolute;
+        left: 910px;
+       }
+       #k{
+        position: relative;
+        top: 20px;
+       }
+       #f1{
+        position: relative;
+        top: 120px;
+        left: 60px;
+       }
+       #f2{
+        position: relative;
+        top: 120px;
+        left: 270px;
+       }
+       #f3{
+        position: relative;
+        top: 120px;
+        left: 450px;
+       }
+       #f4{
+        position: relative;
+        top: 120px;
+        left: 620px;
+       }
+       #f5{
+        position: relative;
+        top: 120px;
+        left: 740px;
+       }
+       #c1{
+        height: 50%;
+       }
+       #c2{
+        height: 280px;
+       }
+       #c3{
+        height: 50%;
+       }
+       #c4{
+        height: 280px;
+        
+       }
+       #c5{
+        height: 280px;
+       }
+       #d1{
+        position: relative;
+        top: 20px;
+       }
+       #dailyne{
+        width: 240px;
+        height: 150px;
+       }
+       select{
+        position: relative;
+        top: 8px;
+       }
+       #dropdownMenuLink{
+        background-color: transparent;
+        border-style: none;
+        color: whitesmoke;
+       }
+    </style>
+</head>
+<body>
+      <nav class="navbar navbar-expand-md bg-info navbar-dark">
+        <a class="navbar-brand" href="#">E-Shopping</a>
+        <a href="cart.html">
+        <img src="{% static 'images/sc.png' %}" width="30px" height="30px">
+        </a>
+        <form>
+            <input type="text" placeholder="Search">
+        </form>
+        <button type="button" class="btn btn-danger">
+            Search
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'log' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sign' %}">Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">About</a>
+              </li>
+              <div class="dropdown show">
+                <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categories
+                </a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {% for c in ca %}
+                  <a class="dropdown-item" href="{% url 'prolist' c.id %}">{{c.category_Name}}</a>
+                  {% endfor %}
+                </div>
+              </div>
+          </ul>
+        </div>  
+      </nav>
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+          <li data-target="#demo" data-slide-to="3"></li>
+          <li data-target="#demo" data-slide-to="4"></li>
+        </ul>
+        
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'images/i1.png' %}" alt="Los Angeles" width="600" height="100" class="img-fluid">
+          </div>
+          <div class="carousel-item" id="a1">
+            <img src="{% static 'images/i2.png' %}" alt="Chicago" width="200" height="100"  class="img-fluid">
+          </div>
+          <div class="carousel-item" id="b">
+            <img src="{% static 'images/i3.png' %}" alt="New York" width="600" height="100"  class="img-fluid">
+          </div>
+          <div class="carousel-item" id="c">
+            <img src="{% static 'images/i4.png' %}" alt="New York" width="600" height="100"  class="img-fluid">            
+          </div>
+          <div class="carousel-item" id="d">
+            <img src="{% static 'images/i5.png' %}" alt="New York" width="600" height="100"  class="img-fluid">            
+          </div>
+        </div>
+        
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+      <div class="container-fluid" id="e">
+        <h3 class="text-center">Categories</h3>
+        <div class="card-deck">
+            <div class="card">
+              <a href="">
+              <img class="card-img-top" src="{% static 'images/m1.jpg' %}" height="500px" alt="Card image cap">
+            </a>
+              <div class="card-body">
+                <h5 class="card-title">MENS</h5>             
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Mens Clothings and Accessories</small>
+              </div>
+            </div>
+            <div class="card">
+              <a href="">
+              <img class="card-img-top " src="{% static 'images/w1.jpg' %}" height="500px" alt="Card image cap">
+            </a>
+              <div class="card-body">
+                <h5 class="card-title">WOMENS</h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Womens Clothings and Accessories</small>
+              </div>
+            </div>
+            <div class="card">
+              <a href="">
+              <img class="card-img-top" src="{% static 'images/k1.jpg' %}" height="500px" alt="Card image cap">
+            </a>
+              <div class="card-body">
+                <h5 class="card-title">KIDS</h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Kids Clothings and Accessories</small>
+              </div>
+            </div>
+          </div>
+
+        <div class="card-deck" id="d1">
+            <div class="card" >
+              <a href="">
+              <img class="card-img-top " src="{% static 'images/smartphone.jpg' %}" width="500px" alt="Card image cap">
+            </a>
+              <div class="card-body">
+                <h5 class="card-title">SMART PHONES</h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Android, Apple devices</small>
+              </div>
+            </div>
+            <div class="card" >
+              <a href="accessories.html">
+              <img class="card-img-top " src="{% static 'images/a1.jpg' %}"  style="width: 530px;" alt="Card image cap">
+            </a>
+              <div class="card-body">
+                <h5 class="card-title">ACCESSORIES</h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">E-Gadgets Accessories</small>
+              </div>
+            </div>
+            <div class="card" >
+              <a href="edevices.html">
+              <img class="card-img-top " src="{% static 'images/elect.jpg' %}" height="400px" alt="Card image cap">
+            </a>
+              <div class="card-body">
+                <h5 class="card-title">ELECTRONICS</h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Laptops,Headphones,Watches etc..</small>
+              </div>
+            </div>
+            <div class="container-fluid" >
+              <h3 class="text-center">Stock Clearance</h3>
+              <div class="card-deck">
+                <div class="card" id="c1">
+                  <a href="shoe.html">
+                  <img class="card-img img-fluid rounded  rounded-circle" src="{% static 'images/sh.jpg' %}" width="500px" alt="Card image cap">
+                </a>
+                  <div class="card-body">
+                    <h5 class="card-title">shoes</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">upto 55% offer</small>
+                  </div>
+                </div>
+                <div class="card" id="c2">
+                  <a href="sports.html">
+                  <img class="card-img img-fluid rounded  rounded-circle" src="{% static 'images/spo.jpg' %}"  style="width: 300px;" alt="Card image cap">
+                </a>
+                  <div class="card-body">
+                    <h5 class="card-title">Sports</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">upto 45% offer</small>
+                  </div>
+                </div>
+                <div class="card" id="c3">
+                  <a href="fitness.html">
+                  <img class="card-img img-fluid rounded  rounded-circle" src="{% static 'images/fit.jpg' %}" height="500px" alt="Card image cap">
+                </a>
+                  <div class="card-body">
+                    <h5 class="card-title">Fitness</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">upto 50% offer</small>
+                  </div>
+                </div>
+                <div class="card" id="c4">
+                  <a href="daily.html">
+                  <img class="card-img img-fluid rounded  rounded-circle" src="{% static 'images/da.png' %}" height="400px"  alt="Card image cap" id="dailyne">
+                </a>
+                  <div class="card-body">
+                    <h5 class="card-title">Daily needs</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">upto 60% offer</small>
+                  </div>
+                </div>
+                <div class="card" id="c5">
+                  <a href="carclean.html">
+                  <img class="card-img img-fluid rounded  rounded-circle" src="{% static 'images/car.jpg' %}" style="width: 150px;" alt="Card image cap">
+                </a>
+                  <div class="card-body">
+                    <h5 class="card-title">Car cleaning</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">upto 70% offer</small>
+                  </div>
+                </div>
+         
+</body>
+</html>
